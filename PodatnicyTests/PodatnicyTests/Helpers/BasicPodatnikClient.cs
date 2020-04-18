@@ -11,28 +11,29 @@ namespace PodatnicyTests.Helpers
         public BasicPodatnikClient() : base()
         {
         }
-            //public BankAccount GetBankAccountByNIP (string nip, string bankAccount, HttpStatusCode httpStatusCode= HttpStatusCode.OK)
-            //{
-            //    RestClient client = new RestClient();
-            //    RestRequest request = new RestRequest($"api/check/nip/{nip}/bank-account/{bankAccount}", Method.GET);
-            //    request.RequestFormat = DataFormat.Json;
-            //    request.Timeout = 2000;
-
-            //    return GetResponse<BankAccount>(request, httpStatusCode).Data;
-            //}
-
-
-        public ResponseContent GetBankAccountByNIP(string nip, string bankAccount, HttpStatusCode httpStatusCode = HttpStatusCode.OK)
+        public BankAccount GetBankAccountByNIP(string nip, string bankAccount, HttpStatusCode httpStatusCode = HttpStatusCode.OK)
         {
             RestClient client = new RestClient();
             RestRequest request = new RestRequest($"api/check/nip/{nip}/bank-account/{bankAccount}", Method.GET);
             request.RequestFormat = DataFormat.Json;
             request.Timeout = 2000;
 
-            return GetResponse<ResponseContent>(request, httpStatusCode).Content.ToString();
+            var response = GetResponse<BankAccount>(request, httpStatusCode);
+
+            return response.Data;
         }
 
+        public BankAccount GetBankAccountByRegon(string regon, string bankAccount, HttpStatusCode httpStatusCode = HttpStatusCode.OK)
+        {
+            RestClient client = new RestClient();
+            RestRequest request = new RestRequest($"api/check/regon/{regon}/bank-account/{bankAccount}", Method.GET);
+            request.RequestFormat = DataFormat.Json;
+            request.Timeout = 2000;
 
+            var response = GetResponse<BankAccount>(request, httpStatusCode);
+
+            return response.Data;
+        }
 
     }
 }

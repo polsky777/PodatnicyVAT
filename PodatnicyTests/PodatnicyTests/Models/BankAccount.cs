@@ -6,9 +6,9 @@ namespace PodatnicyTests.Models
 {
     public class BankAccount
     {
-        public string accountAssigned { get; set; }
-        public string requestDataTime { get; set; }
-        public string requestId { get; set; }
+        public Result Result { get; set; }
+        public string Code { get; set; }
+        public string Message { get; set; }
 
     }
 }
