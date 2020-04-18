@@ -1,0 +1,11 @@
+{
+  "PartnerSettings": {
+    "staging": {
+      "Url": "https://wl-test.mf.gov.pl/",
+    },
+    "pro": {
+      "Url": "https://wl-api.mf.gov.pl/",
+	  }
+
+  }
+}
