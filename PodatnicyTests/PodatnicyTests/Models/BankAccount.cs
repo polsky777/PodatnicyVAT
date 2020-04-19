@@ -9,6 +9,5 @@ namespace PodatnicyTests.Models
         public Result Result { get; set; }
         public string Code { get; set; }
         public string Message { get; set; }
-
     }
 }

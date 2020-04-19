@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using PodatnicyTests.Models;
 using RestSharp;
-
+using System;
 
 namespace PodatnicyTests.Helpers
 {
@@ -20,6 +20,11 @@ namespace PodatnicyTests.Helpers
 
             var response = GetResponse<BankAccount>(request, httpStatusCode);
 
+            Timer dataTimerNow = new Timer();
+            DateTime dataTimeNow = DateTime.Now;
+            DateTime d1 = response.Data.Result.RequestDateTime;
+            int res = DateTime.Compare(d1, dataTimeNow);
+
             return response.Data;
         }
 
@@ -34,6 +39,7 @@ namespace PodatnicyTests.Helpers
 
             return response.Data;
         }
+
 
     }
 }

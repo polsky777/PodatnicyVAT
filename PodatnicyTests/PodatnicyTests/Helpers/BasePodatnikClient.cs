@@ -34,7 +34,7 @@ namespace PodatnicyTests.Helpers
                 client.Timeout = 22000;
             }
 
-            client.AddHandler("application/json", () => new JsonDeserializer() { Culture = new System.Globalization.CultureInfo("pl-PL") });
+            client.AddHandler("application/json", () => new JsonDeserializer() { DateFormat = "dd-MM-yyyy HH:mm:ss" });
             IRestResponse<T> response = client.Execute<T>(request);
             // Assert.AreEqual(httpStatusCode, response.StatusCode, $"Wrong HTTP status for response. Check response from API: {response.ToString()}");
             Assert.IsNull(response.ErrorException, $"Error retrieving response from {client.BuildUri(request).ToString()}. Check inner details for more info");

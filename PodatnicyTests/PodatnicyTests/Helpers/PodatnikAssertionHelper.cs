@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 using PodatnicyTests.Models;
 
 namespace PodatnicyTests.Helpers
@@ -21,6 +22,11 @@ namespace PodatnicyTests.Helpers
             Assert.IsNotNull(accountFalseAccount.Message, $"Lack of message: {expectedMessageAccount}");
             Assert.AreEqual(expectedCodeAccount, accountFalseAccount.Code, $"Error message is incorrect. Should be:  {expectedCodeAccount}");
             Assert.AreEqual(expectedMessageAccount, accountFalseAccount.Message, $"Error message is incorrect. Should be: {expectedMessageAccount}");
+        }
+
+        internal static void CheckAccountAssigned(BankAccount accountOK, string expectedAccountAssigned, DateTime dateTime)
+        {
+            throw new NotImplementedException();
         }
     }
 }

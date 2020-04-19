@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using PodatnicyTests.Helpers;
 using PodatnicyTests.Models;
+using System;
 
 namespace PodatnicyTests.TestSuites
 {
@@ -16,7 +17,7 @@ namespace PodatnicyTests.TestSuites
         {
             //Arrange:
             string expectedAccountAssigned = "NIE";
-            // expectedAccount.Result.requestDateTime = "18-04-2020 13:51:44";
+            DateTime expectedAccount = DateTime.Now; 
             string expectedCodeLengthNIP = "WL-113";
             string expectedMessageLengthNIP = "Pole 'NIP' ma nieprawidłową długość. Wymagane 10 znaków (111111111).";
             string expectedCodeLengthAccount = "WL-109";
@@ -40,7 +41,7 @@ namespace PodatnicyTests.TestSuites
             BankAccount accountFalseAccount = GetBankAccountByNIP("1111111111", "90249000050247256311596736");
 
             //Assert
-            PodatnikAssertionHelper.CheckAccountAssigned(accountOK, expectedAccountAssigned);
+            PodatnikAssertionHelper.CheckAccountAssigned(accountOK, expectedAccountAssigned, expectedAccount);
             PodatnikAssertionHelper.CheckFalse(accountLengthNIP, expectedCodeLengthNIP, expectedMessageLengthNIP);
             PodatnikAssertionHelper.CheckFalse(accountLengthAccount, expectedCodeLengthAccount, expectedMessageLengthAccount);
             PodatnikAssertionHelper.CheckFalse(accountSyntaxNIP, expectedCodeSyntaxNIP, expectedMessageSyntaxNIP);
