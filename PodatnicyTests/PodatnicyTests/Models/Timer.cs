@@ -6,6 +6,16 @@ namespace PodatnicyTests.Models
 {
     class Timer
     {
-        public DateTime DateTimeNow { get; set; }
+        public static DateTime DateTimeNow { get; set; }
+
+        public static void SetDateResponse(DateTime responseDate)
+        {
+            DateTimeNow = responseDate;
+        }
+        public static DateTime GetDateResponse()
+        {
+            return DateTimeNow;
+        }
+
     }
 }

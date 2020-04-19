@@ -31,7 +31,7 @@ namespace PodatnicyTests.Helpers
             client.RemoveHandler("application/json");
             if (client.Timeout < 22000)
             {
-                client.Timeout = 22000;
+                client.Timeout = 220000;
             }
 
             client.AddHandler("application/json", () => new JsonDeserializer() { DateFormat = "dd-MM-yyyy HH:mm:ss" });

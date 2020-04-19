@@ -19,11 +19,7 @@ namespace PodatnicyTests.Helpers
             request.Timeout = 2000;
 
             var response = GetResponse<BankAccount>(request, httpStatusCode);
-
-            Timer dataTimerNow = new Timer();
-            DateTime dataTimeNow = DateTime.Now;
-            DateTime d1 = response.Data.Result.RequestDateTime;
-            int res = DateTime.Compare(d1, dataTimeNow);
+            Timer.SetDateResponse(DateTime.Now);
 
             return response.Data;
         }
