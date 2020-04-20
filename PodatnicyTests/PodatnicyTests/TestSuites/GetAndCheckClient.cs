@@ -29,6 +29,10 @@ namespace PodatnicyTests.TestSuites
             string expectedMessageFalseNIP = "Nieprawidłowy NIP (1112111111).";
             string expectedCodeFalseAccount = "WL-111";
             string expectedMessageFalseAccount = "Nieprawidłowy numer konta bankowego (90249000050247256311596736).";
+            string expectedCodetEmptyNIP = "WL-112";
+            string expectedMessagetEmptyNIP = "Pole 'NIP' nie może być puste.";
+            string expectedCodetEmptyAccount = "WL-108";
+            string expectedMessagetEmptyAccount = "Pole 'numer konta' nie może być puste.";
 
             //Act:
 
@@ -39,11 +43,15 @@ namespace PodatnicyTests.TestSuites
             BankAccount accountSyntaxAccount = GetBankAccountByNIP("1111111111", "9024900005024725631659673x");
             BankAccount accountFalseNIP = GetBankAccountByNIP("1112111111", "90249000050247256316596736");
             BankAccount accountFalseAccount = GetBankAccountByNIP("1111111111", "90249000050247256311596736");
+            BankAccount accountEmptyNIP = GetBankAccountByNIP("", "90249000050247256316596736");
+            BankAccount accountEmptyAccount = GetBankAccountByNIP("1111111111", "");
             BankAccount accountOK = GetBankAccountByNIP("1111111111", "90249000050247256316596736");
             DateTime expectedTime = Models.Timer.GetDateResponse();
 
             //Assert
             PodatnikAssertionHelper.CheckAccountAssigned(accountOK, expectedAccountAssigned, expectedTime);
+            PodatnikAssertionHelper.CheckFalse(accountEmptyNIP, expectedCodetEmptyNIP, expectedMessagetEmptyNIP);
+            PodatnikAssertionHelper.CheckFalse(accountEmptyAccount, expectedCodetEmptyAccount, expectedMessagetEmptyAccount);
             PodatnikAssertionHelper.CheckFalse(accountLengthNIP, expectedCodeLengthNIP, expectedMessageLengthNIP);
             PodatnikAssertionHelper.CheckFalse(accountLengthAccount, expectedCodeLengthAccount, expectedMessageLengthAccount);
             PodatnikAssertionHelper.CheckFalse(accountSyntaxNIP, expectedCodeSyntaxNIP, expectedMessageSyntaxNIP);
@@ -69,6 +77,10 @@ namespace PodatnicyTests.TestSuites
             string expectedMessageFalseRegon = "Nieprawidłowy REGON (676685179).";
             string expectedCodeFalseAccount = "WL-111";
             string expectedMessageFalseAccount = "Nieprawidłowy numer konta bankowego (90249000050247256311596736).";
+            string expectedCodetEmptyRegon = "WL-104";
+            string expectedMessagetEmptyRegon = "Pole 'REGON' nie może być puste.";
+            string expectedCodetEmptyAccount = "WL-108";
+            string expectedMessagetEmptyAccount = "Pole 'numer konta' nie może być puste.";
 
             //Act:
             BankAccount accountLengthRegon = GetBankAccountByRegon("67668587", "90249000050247256316596736");
@@ -77,11 +89,15 @@ namespace PodatnicyTests.TestSuites
             BankAccount accountSyntaxAccount = GetBankAccountByRegon("676685879", "x0249000050247256316596736");
             BankAccount accountFalseRegon = GetBankAccountByRegon("676685179", "90249000050247256316596736");
             BankAccount accountFalseAccount = GetBankAccountByRegon("676685879", "90249000050247256311596736");
+            BankAccount accountEmptyRegon = GetBankAccountByRegon("", "90249000050247256311596736");
+            BankAccount accountEmptyAccount = GetBankAccountByRegon("676685879", "");
             BankAccount account9OK = GetBankAccountByRegon("676685879", "90249000050247256316596736");
             DateTime expectedTime = Models.Timer.GetDateResponse();
 
             //Assert:
             PodatnikAssertionHelper.CheckAccountAssigned(account9OK, expectedAccountAssigned, expectedTime);
+            PodatnikAssertionHelper.CheckFalse(accountEmptyRegon, expectedCodetEmptyRegon, expectedMessagetEmptyRegon);
+            PodatnikAssertionHelper.CheckFalse(accountEmptyAccount, expectedCodetEmptyAccount, expectedMessagetEmptyAccount);
             PodatnikAssertionHelper.CheckFalse(accountLengthRegon, expectedCodeLengthRegon, expectedMessageLengtRegon);
             PodatnikAssertionHelper.CheckFalse(accountLengthAccount, expectedCodeLengthAccount, expectedMessageLengthAccount);
             PodatnikAssertionHelper.CheckFalse(accountSyntaxRegon, expectedCodeSyntaxRegon, expectedMessageSyntaxRegon);
@@ -107,23 +123,31 @@ namespace PodatnicyTests.TestSuites
             string expectedMessageFalseRegon = "Nieprawidłowy REGON (82024460697221).";
             string expectedCodeFalseAccount = "WL-111";
             string expectedMessageFalseAccount = "Nieprawidłowy numer konta bankowego (90249000050247256311596736).";
+            string expectedCodetEmptyRegon = "WL-104";
+            string expectedMessagetEmptyRegon = "Pole 'REGON' nie może być puste.";
+            string expectedCodetEmptyAccount = "WL-108";
+            string expectedMessagetEmptyAccount = "Pole 'numer konta' nie może być puste.";
 
             //Act:
 
             BankAccount accountLengthRegon = GetBankAccountByRegon("820244606972", "90249000050247256316596736");
             BankAccount accountLengthAccount = GetBankAccountByRegon("82024460697228", "9024900005024725631659673");
-            //BankAccount accountSyntaxRegon = GetBankAccountByRegon("820244606972x", "90249000050247256316596736"); bład WL-105
+            BankAccount accountSyntaxRegon = GetBankAccountByRegon("820244606972x", "90249000050247256316596736"); //bład WL-105
             BankAccount accountSyntaxAccount = GetBankAccountByRegon("82024460697228", "x0249000050247256316596736");
             BankAccount accountFalseRegon = GetBankAccountByRegon("82024460697221", "90249000050247256316596736");
             BankAccount accountFalseAccount = GetBankAccountByRegon("82024460697228", "90249000050247256311596736");
+            BankAccount accountEmptyRegon = GetBankAccountByRegon("", "90249000050247256311596736");
+            BankAccount accountEmptyAccount = GetBankAccountByRegon("82024460697228", "");
             BankAccount account14OK = GetBankAccountByRegon("82024460697228", "90249000050247256316596736");
             DateTime expectedTime = Models.Timer.GetDateResponse();
 
             //Assert:
             PodatnikAssertionHelper.CheckAccountAssigned(account14OK, expectedAccountAssigned, expectedTime);
+            PodatnikAssertionHelper.CheckFalse(accountEmptyRegon, expectedCodetEmptyRegon, expectedMessagetEmptyRegon);
+            PodatnikAssertionHelper.CheckFalse(accountEmptyAccount, expectedCodetEmptyAccount, expectedMessagetEmptyAccount);
             PodatnikAssertionHelper.CheckFalse(accountLengthRegon, expectedCodeLengthRegon, expectedMessageLengtRegon);
             PodatnikAssertionHelper.CheckFalse(accountLengthAccount, expectedCodeLengthAccount, expectedMessageLengthAccount);
-            //PodatnikAssertionHelper.CheckFalse(accountSyntaxRegon, expectedCodeSyntaxRegon, expectedMessageSyntaxRegon);
+           // PodatnikAssertionHelper.CheckFalse(accountSyntaxRegon, expectedCodeSyntaxRegon, expectedMessageSyntaxRegon);
             PodatnikAssertionHelper.CheckFalse(accountSyntaxAccount, expectedCodeSyntaxAccount, expectedMessageSyntaxAccount);
             PodatnikAssertionHelper.CheckFalse(accountFalseRegon, expectedCodeFalseRegon, expectedMessageFalseRegon);
             PodatnikAssertionHelper.CheckFalse(accountFalseAccount, expectedCodeFalseAccount, expectedMessageFalseAccount);
