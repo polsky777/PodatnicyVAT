@@ -21,7 +21,7 @@ namespace PodatnicyTests.Helpers
         {
             Assert.IsNotNull(accountFalseAccount.Code, $"Lack of error code: {expectedCodeAccount}");
             Assert.IsNotNull(accountFalseAccount.Message, $"Lack of message: {expectedMessageAccount}");
-           // Assert.AreEqual(expectedCodeAccount, accountFalseAccount.Code, $"Error message is incorrect. Should be:  {expectedCodeAccount}");
+            Assert.AreEqual(expectedCodeAccount, accountFalseAccount.Code, $"Error message is incorrect. Should be:  {expectedCodeAccount}");
             Assert.AreEqual(expectedMessageAccount, accountFalseAccount.Message, $"Error message is incorrect. Should be: {expectedMessageAccount}");
         }
 
